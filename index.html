@@ -5,7 +5,413 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ООО АРЕКО - Шины для любого транспорта</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Базовые стили */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+            position: relative;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        /* Анимированный фон */
+        .animated-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+        
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(0, 100, 200, 0.1);
+            animation: animate 15s infinite;
+        }
+        
+        .circle:nth-child(1) {
+            width: 150px;
+            height: 150px;
+            top: 10%;
+            left: 10%;
+            animation-delay: 0s;
+        }
+        
+        .circle:nth-child(2) {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            left: 80%;
+            animation-delay: 3s;
+        }
+        
+        .circle:nth-child(3) {
+            width: 200px;
+            height: 200px;
+            top: 40%;
+            left: 30%;
+            animation-delay: 6s;
+        }
+        
+        .circle:nth-child(4) {
+            width: 120px;
+            height: 120px;
+            top: 70%;
+            left: 50%;
+            animation-delay: 9s;
+        }
+        
+        .circle:nth-child(5) {
+            width: 180px;
+            height: 180px;
+            top: 20%;
+            left: 65%;
+            animation-delay: 12s;
+        }
+        
+        @keyframes animate {
+            0% {
+                transform: scale(0) translateY(0) rotate(0deg);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1.3) translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Шапка сайта */
+        .header {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+        
+        .logo a {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav ul li {
+            margin-left: 20px;
+        }
+        
+        .nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav ul li a:hover {
+            color: #0066cc;
+        }
+        
+        /* Мобильное меню */
+        .menu-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 30px;
+            height: 21px;
+            cursor: pointer;
+        }
+        
+        .menu-toggle span {
+            height: 3px;
+            width: 100%;
+            background-color: #333;
+            border-radius: 3px;
+            transition: all 0.3s;
+        }
+        
+        /* Герой-секция */
+        .hero {
+            padding: 120px 0 80px;
+            text-align: center;
+            background: linear-gradient(135deg, #0066cc 0%, #003366 100%);
+            color: white;
+        }
+        
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #ff6600;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+        
+        .btn:hover {
+            background-color: #e55a00;
+        }
+        
+        /* Секции */
+        section {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2rem;
+            color: #0066cc;
+        }
+        
+        /* О нас */
+        .about {
+            background-color: #f9f9f9;
+        }
+        
+        .about-text p {
+            margin-bottom: 20px;
+            text-align: center;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        /* Услуги */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            display: block;
+            background-color: white;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .service-icon {
+            font-size: 3rem;
+            color: #0066cc;
+            margin-bottom: 20px;
+        }
+        
+        .service-card h3 {
+            margin-bottom: 15px;
+            color: #0066cc;
+        }
+        
+        /* Контакты */
+        .contact {
+            background-color: #f9f9f9;
+        }
+        
+        .contact-content {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .contact-info {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-info p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-icon {
+            margin-right: 10px;
+            color: #0066cc;
+            min-width: 20px;
+        }
+        
+        .phone-link {
+            color: #0066cc;
+            text-decoration: none;
+            margin-left: 30px;
+        }
+        
+        .phone-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Подвал */
+        .footer {
+            background-color: #003366;
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+        }
+        
+        /* Медиазапросы для мобильных устройств */
+        @media (max-width: 768px) {
+            .menu-toggle {
+                display: flex;
+            }
+            
+            .nav {
+                position: fixed;
+                top: 70px;
+                left: -100%;
+                width: 80%;
+                height: calc(100vh - 70px);
+                background-color: white;
+                box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+                transition: left 0.3s;
+                z-index: 999;
+            }
+            
+            .nav.active {
+                left: 0;
+            }
+            
+            .nav ul {
+                flex-direction: column;
+                padding: 20px;
+            }
+            
+            .nav ul li {
+                margin: 10px 0;
+            }
+            
+            .hero {
+                padding: 100px 0 60px;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .contact-info p {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .phone-link {
+                margin-left: 0;
+                margin-top: 5px;
+            }
+            
+            /* Уменьшаем размер анимированных кругов на мобильных */
+            .circle:nth-child(1) {
+                width: 100px;
+                height: 100px;
+            }
+            
+            .circle:nth-child(2) {
+                width: 70px;
+                height: 70px;
+            }
+            
+            .circle:nth-child(3) {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .circle:nth-child(4) {
+                width: 80px;
+                height: 80px;
+            }
+            
+            .circle:nth-child(5) {
+                width: 110px;
+                height: 110px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+            
+            .service-card {
+                padding: 20px;
+            }
+            
+            .service-icon {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Анимированный фон -->
@@ -23,12 +429,17 @@
             <div class="logo">
                 <a href="#home">ООО АРЕКО</a>
             </div>
-            <nav class="nav">
+            <div class="menu-toggle" id="mobile-menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+            <nav class="nav" id="nav">
                 <ul>
-                    <li><a href="#home">Главная</a></li>
-                    <li><a href="#about">О нас</a></li>
-                    <li><a href="#services">Услуги</a></li>
-                    <li><a href="#contact">Контакты</a></li>
+                    <li><a href="#home" class="nav-link">Главная</a></li>
+                    <li><a href="#about" class="nav-link">О нас</a></li>
+                    <li><a href="#services" class="nav-link">Услуги</a></li>
+                    <li><a href="#contact" class="nav-link">Контакты</a></li>
                 </ul>
             </nav>
         </div>
@@ -59,34 +470,34 @@
         </section>
 
         <!-- Секция услуг с id="services" -->
-<section id="services" class="services">
-    <div class="container">
-        <h2>Наши услуги</h2>
-        <div class="services-grid">
-            <a href="passenger_cars.html" class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-car"></i>
+        <section id="services" class="services">
+            <div class="container">
+                <h2>Наши услуги</h2>
+                <div class="services-grid">
+                    <a href="passenger_cars.html" class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-car"></i>
+                        </div>
+                        <h3>Легковые шины</h3>
+                        <p>Шины для легковых автомобилей всех классов: летние, зимние и всесезонные. Широкий выбор размеров и производителей.</p>
+                    </a>
+                    <a href="cargo.html" class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-truck"></i>
+                        </div>
+                        <h3>Грузовые шины</h3>
+                        <p>Шины для грузового транспорта: для междугородних перевозок, строительной техники и специального назначения.</p>
+                    </a>
+                    <a href="special_equipment.html" class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-tractor"></i>
+                        </div>
+                        <h3>Шины для спецтехники</h3>
+                        <p>Шины для сельскохозяйственной, строительной и другой спецтехники. Высокая износостойкость и надежность.</p>
+                    </a>
                 </div>
-                <h3>Легковые шины</h3>
-                <p>Шины для легковых автомобилей всех классов: летние, зимние и всесезонные. Широкий выбор размеров и производителей.</p>
-            </a>
-            <a href="cargo.html" class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-truck"></i>
-                </div>
-                <h3>Грузовые шины</h3>
-                <p>Шины для грузового транспорта: для междугородних перевозок, строительной техники и специального назначения.</p>
-            </a>
-            <a href="special_equipment.html" class="service-card">
-                <div class="service-icon">
-                    <i class="fas fa-tractor"></i>
-                </div>
-                <h3>Шины для спецтехники</h3>
-                <p>Шины для сельскохозяйственной, строительной и другой спецтехники. Высокая износостойкость и надежность.</p>
-            </a>
-        </div>
-    </div>
-</section>
+            </div>
+        </section>
 
         <!-- Секция контактов с id="contact" -->
         <section id="contact" class="contact">
@@ -112,6 +523,42 @@
     </footer>
 
     <!-- Подключение JavaScript -->
-    <script src="script.js"></script>
+    <script>
+        // Мобильное меню
+        const mobileMenu = document.getElementById('mobile-menu');
+        const nav = document.getElementById('nav');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        mobileMenu.addEventListener('click', function() {
+            this.classList.toggle('active');
+            nav.classList.toggle('active');
+        });
+        
+        // Закрытие меню при клике на ссылку
+        navLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                mobileMenu.classList.remove('active');
+                nav.classList.remove('active');
+            });
+        });
+        
+        // Плавная прокрутка
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
 </body>
 </html>

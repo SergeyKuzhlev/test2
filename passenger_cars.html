@@ -32,27 +32,29 @@
             line-height: 1.6;
             min-height: 100vh;
             scroll-behavior: smooth;
+            overflow-x: hidden; /* Предотвращает горизонтальную прокрутку */
         }
 
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
+            padding: 15px; /* Уменьшил отступы для мобильных */
+            width: 100%;
         }
 
         /* Header */
         .header {
             text-align: center;
-            padding: 3rem 2rem;
+            padding: 2rem 1rem; /* Уменьшил отступы для мобильных */
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
-            border-radius: 15px;
-            margin-bottom: 3rem;
+            border-radius: 12px; /* Немного уменьшил радиус */
+            margin-bottom: 2rem;
             box-shadow: var(--shadow);
         }
 
         .header h1 {
-            font-size: 2.8rem;
+            font-size: 1.8rem; /* Уменьшил размер для мобильных */
             margin-bottom: 1rem;
             font-weight: 700;
             animation: titleAnimation 2s ease-in-out;
@@ -73,18 +75,20 @@
         }
 
         .header p {
-            font-size: 1.2rem;
+            font-size: 1rem; /* Уменьшил размер для мобильных */
             opacity: 0.9;
+            line-height: 1.5;
         }
 
         /* Sections */
         .section {
             background: white;
-            border-radius: 15px;
-            padding: 2.5rem;
-            margin-bottom: 2.5rem;
+            border-radius: 12px; /* Немного уменьшил радиус */
+            padding: 1.5rem; /* Уменьшил отступы для мобильных */
+            margin-bottom: 2rem;
             box-shadow: var(--shadow);
             transition: var(--transition);
+            width: 100%;
         }
 
         .section:hover {
@@ -94,25 +98,26 @@
 
         .section h2 {
             color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.8rem;
+            font-size: 1.5rem; /* Уменьшил размер для мобильных */
+            margin-bottom: 1.2rem;
+            padding-bottom: 0.6rem;
             border-bottom: 3px solid var(--secondary);
             display: inline-block;
+            width: 100%; /* Чтобы занимал всю ширину */
         }
 
         /* Articles Grid */
         .articles-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-            margin-top: 2rem;
+            grid-template-columns: 1fr; /* Одна колонка на мобильных */
+            gap: 1.5rem;
+            margin-top: 1.5rem;
         }
 
         .article-card {
             background: var(--light);
-            padding: 2rem;
-            border-radius: 12px;
+            padding: 1.5rem;
+            border-radius: 10px;
             border-left: 4px solid var(--accent);
             transition: var(--transition);
             height: 100%;
@@ -125,11 +130,11 @@
 
         .article-card h3 {
             color: var(--dark);
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
+            font-size: 1.2rem; /* Уменьшил размер для мобильных */
+            margin-bottom: 0.8rem;
             display: flex;
             align-items: center;
-            gap: 10px;
+            gap: 8px;
         }
 
         .article-card h3 i {
@@ -143,15 +148,16 @@
         }
 
         .features-list li {
-            padding: 1rem;
-            margin-bottom: 1rem;
+            padding: 0.8rem;
+            margin-bottom: 0.8rem;
             background: linear-gradient(135deg, #f8f9fa, #e9ecef);
             border-radius: 8px;
             border-left: 4px solid var(--success);
             display: flex;
             align-items: center;
-            gap: 15px;
+            gap: 12px;
             transition: var(--transition);
+            font-size: 0.95rem; /* Уменьшил размер для мобильных */
         }
 
         .features-list li:hover {
@@ -161,17 +167,18 @@
 
         .brands-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1rem;
-            margin: 2rem 0;
+            grid-template-columns: 1fr; /* Одна колонка на мобильных */
+            gap: 0.8rem;
+            margin: 1.5rem 0;
         }
 
         .brands-list li {
-            padding: 1rem;
+            padding: 0.8rem;
             background: var(--light);
             border-radius: 8px;
             border-left: 3px solid var(--primary);
             transition: var(--transition);
+            font-size: 0.95rem; /* Уменьшил размер для мобильных */
         }
 
         .brands-list li:hover {
@@ -182,29 +189,30 @@
         /* Contact */
         .contact-info {
             background: var(--light);
-            padding: 2rem;
-            border-radius: 12px;
-            margin: 2rem 0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
             text-align: center;
         }
 
         .contact-info p {
-            margin-bottom: 1rem;
-            font-size: 1.1rem;
+            margin-bottom: 0.8rem;
+            font-size: 1rem; /* Уменьшил размер для мобильных */
         }
 
         .btn {
             display: inline-block;
             background: linear-gradient(135deg, var(--secondary), #c0392b);
             color: white;
-            padding: 15px 30px;
+            padding: 12px 24px;
             text-decoration: none;
             border-radius: 8px;
             font-weight: 600;
             transition: var(--transition);
-            margin-top: 1rem;
+            margin-top: 0.8rem;
             border: none;
             cursor: pointer;
+            font-size: 1rem;
         }
 
         .btn:hover {
@@ -215,10 +223,10 @@
         /* Кнопка домашней страницы */
         .home-button {
             position: fixed;
-            top: 30px;
-            left: 30px;
-            width: 50px;
-            height: 50px;
+            top: 20px;
+            left: 20px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, var(--accent), #2980b9);
             color: white;
             border-radius: 50%;
@@ -238,16 +246,16 @@
         }
 
         .home-button i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* Back to Top Button */
         .back-to-top {
             position: fixed;
-            bottom: 30px;
-            right: 30px;
-            width: 50px;
-            height: 50px;
+            bottom: 20px;
+            right: 20px;
+            width: 45px;
+            height: 45px;
             background: linear-gradient(135deg, var(--primary), var(--dark));
             color: white;
             border-radius: 50%;
@@ -276,74 +284,92 @@
         }
 
         .back-to-top i {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
         /* Icons */
         .icon {
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             color: var(--success);
+            flex-shrink: 0; /* Предотвращает сжатие иконок */
         }
 
         /* Responsive */
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
             .header h1 {
                 font-size: 2.2rem;
             }
             
+            .header p {
+                font-size: 1.2rem;
+            }
+            
             .section {
-                padding: 1.5rem;
-            }
-            
-            .articles-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .brands-list {
-                grid-template-columns: 1fr;
-            }
-            
-            .home-button {
-                top: 20px;
-                left: 20px;
-                width: 45px;
-                height: 45px;
-            }
-            
-            .back-to-top {
-                bottom: 20px;
-                right: 20px;
-                width: 45px;
-                height: 45px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            .header {
-                padding: 2rem 1rem;
-            }
-            
-            .header h1 {
-                font-size: 1.8rem;
+                padding: 2rem;
             }
             
             .section h2 {
+                font-size: 1.8rem;
+            }
+            
+            .articles-grid {
+                grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            }
+            
+            .brands-list {
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            }
+            
+            .article-card h3 {
+                font-size: 1.4rem;
+            }
+        }
+
+        @media (min-width: 992px) {
+            .container {
+                padding: 20px;
+            }
+            
+            .header {
+                padding: 3rem 2rem;
+            }
+            
+            .header h1 {
+                font-size: 2.8rem;
+            }
+            
+            .section {
+                padding: 2.5rem;
+            }
+            
+            .section h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Дополнительные улучшения для очень маленьких экранов */
+        @media (max-width: 360px) {
+            .home-button, .back-to-top {
+                width: 40px;
+                height: 40px;
+            }
+            
+            .header h1 {
                 font-size: 1.6rem;
             }
             
-            .home-button {
-                top: 15px;
-                left: 15px;
-                width: 40px;
-                height: 40px;
+            .section {
+                padding: 1.2rem;
             }
             
-            .back-to-top {
-                bottom: 15px;
-                right: 15px;
-                width: 40px;
-                height: 40px;
+            .article-card {
+                padding: 1.2rem;
+            }
+            
+            .features-list li, .brands-list li {
+                font-size: 0.9rem;
+                padding: 0.7rem;
             }
         }
     </style>
@@ -361,7 +387,7 @@
         </header>
 
         <section class="section">
-            <h2><i class="fas fa-categories"></i> Категории шин</h2>
+            <h2><i class="fas fa-list"></i> Категории шин</h2>
             <p>Мы предлагаем полный ассортимент шин для легковых автомобилей всех классов — от компактных городских машин до премиальных седанов и кроссоверов.</p>
 
             <div class="articles-grid">
@@ -433,8 +459,8 @@
         <section class="section">
             <h2><i class="fas fa-headset"></i> Нужна помощь с выбором?</h2>            
             <div class="contact-info">
-                <p><strong>Телефон:</strong>+7 913 195-08-60</p>
-                <p><strong>Телефон:</strong>+7 923 363-73-00</p>
+                <p><strong>Телефон:</strong> +7 913 195-08-60</p>
+                <p><strong>Телефон:</strong> +7 923 363-73-00</p>
             </div>
         </section>
     </div>
@@ -455,6 +481,7 @@
                 backToTopButton.classList.remove('show');
             }
         });
+        
 
         // Плавная прокрутка к якорям
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
